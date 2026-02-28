@@ -1,0 +1,49 @@
+---
+description: Validator Framework — spec-first, validate before done
+alwaysApply: true
+---
+
+# Validator Framework
+
+## Fluxo obrigatório
+
+```
+editar → validar → concluir ou corrigir
+```
+
+Antes de considerar qualquer tarefa concluída, execute:
+
+```bash
+npm run validate
+```
+
+## Checklist de validação
+
+- [ ] TypeScript: `npx tsc --noEmit` sem erros
+- [ ] Lint: `npm run lint` sem erros
+- [ ] Validação geral: `npm run validate` passa com exit 0
+
+## Regras
+
+1. **Nunca aplicar código que não compila** — `tsc --noEmit` deve passar.
+2. **Nunca violar regras explícitas do projeto** — ESLint/Prettier devem passar.
+3. **Nunca aceitar APIs, tipos ou funções inventados** — checar assinaturas reais.
+4. **Sempre checar antes de aplicar** — rodar `npm run validate` antes de concluir.
+
+## Fluxo de retry
+
+```
+Usuário pede alteração
+  → Cursor gera diff/código
+  → npm run validate
+  → [OK]   → aplicar
+  → [FAIL] → corrigir com base no erro → revalidar
+             (após 3 retries: não aplicar, informar o usuário)
+```
+
+## Fail-safe
+
+Se após 3 tentativas o código ainda não passar na validação:
+- **Não aplicar** a alteração.
+- Informar o usuário com o erro exato.
+- Nunca forçar código inválido.

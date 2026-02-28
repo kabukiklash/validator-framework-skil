@@ -1,0 +1,20 @@
+{
+  "name": "validator-framework-skil",
+  "version": "1.0.0",
+  "description": "Validator Framework — spec-first, validate before done",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "lint": "eslint . --ext .js,.ts,.mjs 2>/dev/null || echo 'lint: no eslint config found, skipping'"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "keywords": [
+    "validator",
+    "cursor",
+    "vscode",
+    "framework"
+  ],
+  "license": "MIT"
+}

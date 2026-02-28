@@ -1,0 +1,32 @@
+{
+  "name": "validator-framework-skill",
+  "version": "1.0.0",
+  "description": "Validator Framework Skill for Cursor and VSCode — spec-first, validate before done",
+  "type": "module",
+  "bin": {
+    "validator-framework-install": "./scripts/install.mjs"
+  },
+  "scripts": {
+    "install:cursor": "node scripts/install.mjs cursor",
+    "install:vscode": "node scripts/install.mjs vscode",
+    "validate": "node scripts/validate.mjs"
+  },
+  "keywords": [
+    "cursor",
+    "vscode",
+    "validator",
+    "framework",
+    "skill",
+    "typescript",
+    "lint"
+  ],
+  "license": "MIT",
+  "files": [
+    "scripts/",
+    "cursor-rules/",
+    "vscode/",
+    "docs/",
+    "SKILL.md",
+    "README.md"
+  ]
+}
