@@ -1,0 +1,29 @@
+{
+  "name": "validator-framework-skill",
+  "version": "1.0.0",
+  "description": "Skill Cursor/VSCode: Spec-first, validate before done. Protege contra alucinações da LLM.",
+  "keywords": ["cursor", "vscode", "validation", "skill", "antigravity", "genesis-vision"],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "validator-framework-install": "scripts/install.mjs"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "install:cursor": "node scripts/install.mjs cursor",
+    "install:vscode": "node scripts/install.mjs vscode"
+  },
+  "files": [
+    "SKILL.md",
+    "scripts/",
+    "cursor-rules/",
+    "vscode/",
+    "docs/",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GenesisVision/validator-framework-skill.git"
+  }
+}

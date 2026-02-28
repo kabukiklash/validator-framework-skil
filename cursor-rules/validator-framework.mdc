@@ -1,0 +1,31 @@
+---
+description: Validator Framework - Spec-first, validate before done. Protege contra alucinações da LLM.
+alwaysApply: true
+---
+
+# Validator Framework (Padrão GenesisVision)
+
+## Princípio Central
+**Never trust, always validate.** Todo código gerado deve passar por validadores determinísticos antes de ser considerado concluído.
+
+## Fluxo Obrigatório
+
+```
+Editar código → Executar validadores → [OK] → Considerar concluído
+                           → [FALHA] → Corrigir e revalidar
+```
+
+## Checklist Antes de Declarar Edição Concluída
+
+1. **TypeScript**: `npx tsc --noEmit` — sem erros de tipo
+2. **Lint**: `npm run lint` — sem violações
+3. **Ou use**: `npm run validate` — executa ambos em sequência
+
+Se qualquer um falhar, NÃO considere a tarefa concluída. Corrija os erros e revalide.
+
+## Regras de Comportamento
+
+- **Spec-first**: Antes de gerar código, considere as regras do projeto (tsconfig, eslint, RULE.md)
+- **Fail fast**: Ao detectar erro de validação, pare e corrija — não prossiga com código quebrado
+- **Feedback loop**: Use a saída do validador (tsc, eslint) para orientar a correção
+- **Não assuma**: APIs, tipos, imports — verifique no código existente antes de inventar
